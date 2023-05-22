@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<dynamic> _recognitions;
+  List<dynamic> _recognitions = [];
   int _imageHeight = 0;
   int _imageWidth = 0;
   String _model = "";
@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadModel() async {
-    String res;
+    String? res;
     switch (_model) {
       case yolo:
         res = await Tflite.loadModel(
@@ -80,19 +80,19 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  RaisedButton(
+                  TextButton(
                     child: const Text(ssd),
                     onPressed: () => onSelect(ssd),
                   ),
-                  RaisedButton(
+                  TextButton(
                     child: const Text(yolo),
                     onPressed: () => onSelect(yolo),
                   ),
-                  RaisedButton(
+                  TextButton(
                     child: const Text(mobilenet),
                     onPressed: () => onSelect(mobilenet),
                   ),
-                  RaisedButton(
+                  TextButton(
                     child: const Text(posenet),
                     onPressed: () => onSelect(posenet),
                   ),
